@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendaftaran Peminatan</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body class="bg-blue-100 min-h-screen flex items-center justify-center p-4">
+
+  <!-- Kartu form -->
+  <div class="bg-white/95 shadow-lg rounded-xl w-full max-w-lg p-6 border-l-4 border-pink-300">
+    <h1 class="text-2xl font-bold text-center text-blue-800 mb-6">
+      Form Pendaftaran Peminatan
+    </h1>
+
+    <form id="myForm" class="space-y-4">
+      <!-- Nama -->
+      <div>
+        <label for="nama" class="block font-medium">Nama Lengkap</label>
+        <input id="nama" type="text" required
+          class="mt-1 w-full p-2 border rounded-lg focus:ring-pink-300 focus:border-pink-300" />
+      </div>
+
+      <!-- NIM -->
+      <div>
+        <label for="nim" class="block font-medium">NIM</label>
+        <input id="nim" type="text" required
+          class="mt-1 w-full p-2 border rounded-lg focus:ring-pink-300 focus:border-pink-300" />
+      </div>
+
+      <!-- Jurusan -->
+      <div>
+        <label for="jurusan" class="block font-medium">Program Studi</label>
+        <select id="jurusan" required
+          class="mt-1 w-full p-2 border rounded-lg focus:ring-pink-300 focus:border-pink-300">
+          <option value="">-- Pilih Prodi --</option>
+          <option>Teknik Informatika</option>
+          <option>Teknologi Informasi</option>
+          <option>Sistem Informasi</option>
+        </select>
+      </div>
+
+<div>
+  <label class="block font-medium mb-1">Peminatan pada bidang</label>
+  <div class="space-y-2">
+    <label class="flex items-center gap-2">
+      <input type="radio" name="peminatan" value="Programming" required class="accent-pink-500" />
+      <span>Programming</span>
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="radio" name="peminatan" value="Desain" class="accent-pink-500" />
+      <span>Desain</span>
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="radio" name="peminatan" value="Jaringan" class="accent-pink-500" />
+      <span>Jaringan</span>
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="radio" name="peminatan" value="Data" class="accent-pink-500" />
+      <span>Data</span>
+    </label>
+  </div>
+</div>
+
+      <!-- Angkatan -->
+      <div>
+        <label for="angkatan" class="block font-medium">Angkatan</label>
+        <select id="angkatan" required
+          class="mt-1 w-full p-2 border rounded-lg focus:ring-pink-300 focus:border-pink-300">
+          <option value="">-- Pilih Angkatan --</option>
+          <option>2018</option>
+          <option>2019</option>
+          <option>2020</option>
+          <option>2021</option>
+          <option>2022</option>
+          <option>2023</option>
+          <option>2024</option>
+          <option>2025</option>
+        </select>
+      </div>
+
+      <!-- Tanggal -->
+      <div>
+        <label for="tanggal" class="block font-medium">Tanggal Lahir</label>
+        <input id="tanggal" type="text" placeholder="Pilih tanggal" required
+          class="mt-1 w-full p-2 border rounded-lg focus:ring-pink-300 focus:border-pink-300" />
+      </div>
+
+      <div>
+  <label for="alamat" class="block font-medium">Alamat</label>
+  <textarea id="alamat" rows="3" required
+    class="mt-1 w-full p-2 border rounded-lg focus:ring-pink-300 focus:border-pink-300 resize-none"
+    placeholder="Masukkan alamat lengkap..."></textarea>
+    </div>
+
+      <button type="button" id="kirimBtn"
+        class="w-full mt-4 py-2 text-white font-semibold rounded-lg
+               bg-gradient-to-r from-blue-400 to-pink-300
+               hover:from-blue-500 hover:to-pink-400">
+        Kirim
+      </button>
+    </form>
+  </div>
+
+  <!-- Modal -->
+  <div id="popup"
+       class="fixed inset-0 hidden bg-black/50 flex items-center justify-center z-50">
+    <div class="bg-white/95 p-6 rounded-xl w-full max-w-lg shadow-lg border-l-4 border-pink-300">
+      <h2 class="text-xl font-bold text-pink-500 mb-4">Data Terkirim</h2>
+      <p><strong>Nama:</strong> <span id="hasilNama"></span></p>
+      <p><strong>NIM:</strong> <span id="hasilNIM"></span></p>
+      <p><strong>Program Studi:</strong> <span id="hasilJurusan"></span></p>
+      <p><strong>Peminatan:</strong> <span id="hasilPeminatan"></span></p>
+      <p><strong>Angkatan:</strong> <span id="hasilAngkatan"></span></p>
+      <p><strong>Alamat:</strong> <span id="hasilAlamat"></span></p>
+      <p><strong>Tanggal Lahir:</strong> <span id="hasilTanggal"></span></p>
+      <button id="closeBtn"
+        class="w-full mt-4 py-2 text-white font-semibold rounded-lg
+               bg-gradient-to-r from-blue-400 to-pink-300
+               hover:from-blue-500 hover:to-pink-400">Tutup</button>
+    </div>
+  </div>
+
+  <!-- Flatpickr & logic -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="script.js"></script>
+</body>
+</html>
